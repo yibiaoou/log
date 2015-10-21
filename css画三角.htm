@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,use-scalable=no" />
+	<title>css 三角形</title>
+	<style>
+	*{ padding:0; margin:0; -moz-box-sizing:box-border; -webkit-box-sizing:box-border; -o-box-sizing:box-border; -ms-box-sizing:box-border; box-sizing:box-border; }
+	.am-dropdown-content{ width:0; height:0; border-width:8px; border-style:solid; border-color:#f60 #dbdbdb #f33 #ddd; }
+	
+	.my-dropdown{ border:1px solid #dbdbdb; padding:10px; border-radius:3px; width:90%; margin:0 auto; position:relative; }
+	
+	.my-dropdown:before,.my-dropdown:after{ position:absolute; top:0; left:10px; content:''; width:0; height:0; border-width:8px; border-style:solid; border-color:transparent transparent #fff transparent; margin:-16px 0 0 0;  }
+	.my-dropdown:before{ top:-1px; border-bottom-color:#dbdbdb; }
+	</style>
+</head>
+<body>
+	<div class="am-dropdown-content"></div>
+	
+	<div class="my-dropdown">三角形思路，使用两个一摸一样的用边画出来三角形来定位。两者高度相差1个像素，形成高度差就会出来一像素的边线</div>
+</body>
+</html>
