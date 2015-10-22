@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>	
+	<script>
+		// 所有按钮的点击事件处理，setTimeout的button绑定成功
+		$( document ).on( "click", "#btn1", function(e) {
+			alert(e.target.tagName);
+		});
+		
+		//setTimeout的button没有绑定成功
+		$( "#btn2" ).on( "click", function(e) {
+			alert(e.target.tagName);
+		});
+		 
+		//... 一段时间后... 
+		 
+		// 动态将别的按钮添加到页面
+		setTimeout(function(){
+			$( "body" ).append( "<button id='btn1'>Click btn1!</button>" )
+			           .append( "<button id='btn2'>Click btn2!</button>" )
+					   .append( "<p>btn1事件绑定成功，btn2事件绑定不成功</p>" );
+		},5000);		
+	</script>
+</body>
+</html>
