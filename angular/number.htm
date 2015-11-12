@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="myapp">
+<head>
+	<meta charset="UTF-8" />
+	<title>angular example</title>
+	<script src="angular.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<number mymin="1" mymax="10" mystep="3" ng-model="sum" ng-init="sum=4"></number>
+	
+	<script>
+		var myapp = angular.module("myapp",[]);
+		myapp.directive("number",function(){
+			return {
+				restrict:'E',
+				template:'<div><button ng-click="add()">add</button><input type="text" ng-model="sum" /><button ng-click="reduce()">reduce</button></div>',
+				link:function(scope, iElement, iAttrs, ctrl){						
+					var init = iAttrs.myinit,
+						min  = iAttrs.mymin,
+						max  = iAttrs.mymax,
+						step = iAttrs.mystep;						
+					
+					scope.add = function(){				
+						scope.sum = (parseInt(scope.sum) + parseInt(step)) <= max ? (parseInt(scope.sum) + parseInt(step)) : max; 
+					};
+					scope.reduce = function(){
+						scope.sum = (scope.sum - step) >= min ? (scope.sum - step) : min;
+					};
+				}				
+			}
+		})				
+	</script>
+</body>
+</html>
